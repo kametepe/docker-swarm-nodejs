@@ -101,6 +101,8 @@ networks:
   1 - Build the services 
   2 - deploy them to our local stack called production
   
- Once done you browse http://localhost:85 and see the nodejs message, hitting F5 will display a different hostname since HAproxy will load balance the request.
+ Once done you browse http://localhost:85 and see the nodejs message, 
+ 
+ Hitting F5 will display a different hostname since HAproxy will load balance the request.
  
  

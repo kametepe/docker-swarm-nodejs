@@ -44,7 +44,7 @@ version: '3'
 
 services:
   awesome:
-   image: testimoy
+   image: testimony
    ports:
      - 8080
    environment:

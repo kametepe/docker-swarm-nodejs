@@ -1,8 +1,12 @@
 # docker-swarm-nodejs
 a sample of Docker Swarm with nodejs
 
+Create a new folder called testimony.
+```bash
+$ cd testimony
+```
 
-Create a new files index.js and paste the code below : 
+Create a new file index.js and paste the code below : 
 
 ```node
 var http = require('http');
@@ -14,9 +18,8 @@ http.createServer(function (req, res) {
 }).listen(8080);
 ```
 
-
-Now we need to dockerize the app, so we’ll create a file named Dockerfile with the following code:
-
+#### Create Dockerfile
+Now we need to dockerize the app, we’ll create a file named Dockerfile with the following code:
 
 ```docker
 FROM node
@@ -25,15 +28,15 @@ COPY index.js /usr/src/app
 EXPOSE 8080
 CMD [ "node", "/usr/src/app/index" ]
 ```
-
-To build a docker image of our newly testimony Node.js app from this docker file instructions we’ll write docker build command line, where our Dockerfile file is located:
+#### Build the Docker image
+To build a docker image of our newly awesome Node.js app from the docker file instructions; we’ll write the docker build command line, where our Dockerfile file is located:
 
 ```bash
 $ docker build -t testimony .
 ```
 
-
-Now we have a docker image of our simple (and testimony) Node.js app, and we can create containers from that image.
+#### Let's run
+Now we have a docker image of our simple (and awesome) Node.js app, and we can create containers from that image.
 
 Let's say we want 20 running containers of that image and all behind a load balancing server.
 For our HTTP server we’ll use HAProxy that will listen to port 85
@@ -43,7 +46,7 @@ Let’s create a docker-compose.yml file:
 version: '3'
 
 services:
-  awesome:
+  testimony:
    image: testimony
    ports:
      - 8080
@@ -83,7 +86,7 @@ networks:
  ```
  
  
- 
+ #### Docker SWARM !!!!!
  Now let’s create a swarm (with one computer for now, but you can easily add more to the swarm). To do this we'll write docker swarm init and we created a swarm!! 
  
  ```bash
